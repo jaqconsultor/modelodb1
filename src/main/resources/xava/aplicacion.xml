@@ -1,0 +1,143 @@
+<?xml version = "1.0" encoding = "ISO-8859-1"?>
+
+<!DOCTYPE aplicacion SYSTEM "dtds/aplicacion.dtd">
+
+<aplicacion nombre="modelodb1"> 
+	
+	<modulo nombre="OrdenDeCompraAlProveedor">
+		<modelo nombre="OrdenDeCompraAlProveedor"/>
+	    <tab nombre="OrdenesAbiertas"/>
+		<controlador nombre="Typical"/>		
+	</modulo>		
+
+	<modulo nombre="OrdenDeCompraAlProveedorCerradas">
+		<modelo nombre="OrdenDeCompraAlProveedor"/>
+	    <tab nombre="OrdenesCerradas"/>
+		<controlador nombre="ListOnly"/>		
+	</modulo>		
+	
+	<modulo-defecto>
+		<controlador nombre="Typical"/>		
+	</modulo-defecto>
+
+ 	<modulo nombre="VerAdmisionesCerradas">
+		<var-entorno nombre="XAVA_LIST_ACTION" valor="List.viewDetail"/>
+		<modelo nombre="Admision"/>
+	    <tab nombre="Cerrado"/>
+		<controlador nombre="ListOnly"/>	    
+	</modulo>		
+
+	<modulo nombre="VerInventarioCargado">
+		<modelo nombre="CargaDeInventario"/>
+		<controlador nombre="CargaDeInventario"/>		
+	</modulo>		
+
+	<modulo nombre="TipoDeProductos">
+		<modelo nombre="TipoDeInventario"/>
+	    <tab nombre="TipoDeProductos"/>
+		<controlador nombre="ListOnly"/>		
+	</modulo>		
+
+	<modulo nombre="TipoDeServicios">
+		<modelo nombre="TipoDeInventario"/>
+	    <tab nombre="TipoDeServicios"/>
+		<controlador nombre="ListOnly"/>		
+	</modulo>	
+
+	<modulo nombre="Servicios">
+		<modelo nombre="Servicios"/>
+	    <tab nombre="TipoDeServicios"/>
+		<controlador nombre="ListOnly"/>		
+	</modulo>		
+
+
+	<modulo nombre="Empleados">
+		<modelo nombre="BeneficiariosDeLaClinica"/>
+	    <tab nombre="Empleados"/>
+		<controlador nombre="Typical"/>		
+	</modulo>		
+
+	<modulo nombre="EmpleadosQueAvalan">
+		<modelo nombre="BeneficiariosDeLaClinica"/>
+	    <tab nombre="Avalados"/>
+		<controlador nombre="Typical"/>		
+	</modulo>		
+
+	<modulo nombre="EmpleadosQueAutorizan">
+		<modelo nombre="BeneficiariosDeLaClinica"/>
+	    <tab nombre="Autorizados"/>
+		<controlador nombre="Typical"/>		
+	</modulo>		
+
+	<modulo nombre="BeneficiariosCargados">
+		<modelo nombre="CargaDeBeneficiarios"/>
+	    <tab nombre="Procesados"/>
+		<controlador nombre="ListOnly"/>		
+	</modulo>		
+	
+	<!-- 
+	
+	<modulo nombre="Accion1Factura">
+		<modelo nombre="Factura"/>
+		<controlador nombre="Typical"/>
+	</modulo>		
+
+	<modulo nombre="Accion2Producto">
+		<modelo nombre="Producto"/>
+		<controlador nombre="Typical"/>
+	</modulo>		
+
+	<modulo nombre="Accion3Cliente">
+		<modelo nombre="Cliente"/>
+		<controlador nombre="Typical"/>
+	</modulo>		
+
+	<modulo nombre="Accion4Pedido">
+		<modelo nombre="Pedido"/>
+		<controlador nombre="Typical"/>
+	</modulo>		
+
+	<modulo nombre="Accion5NotaDeEntrega">
+		<modelo nombre="NotaDeEntrega"/>
+		<controlador nombre="Typical"/>
+	</modulo>		
+	   
+	<modulo nombre="ProfesorSoloLectura">
+		<modelo nombre="Factura"/>
+		<controlador nombre="Typical"/>
+	</modulo>		
+
+-->
+		
+ 	
+	<modulo-defecto>		  
+		<controlador nombre="Facturacion"/>		
+	</modulo-defecto>
+
+	<!--
+	Podemos definir m�dulos adicionales, por ejemplo: 	
+	<modulo nombre="ProfesorSoloLectura">
+		<modelo nombre="Profesor"/>
+		<controlador nombre="Print"/>
+	</modulo>		
+	-->	  
+		
+ 	<modulo nombre="PapeleraFactura">
+        <var-entorno nombre="XAVA_LIST_ACTION"
+        valor="Papelera.restaurar"/> 
+        <modelo nombre="Factura"/>
+        <tab nombre="Eliminado"/> 
+        <controlador nombre="Papelera"/> 
+    </modulo>
+ 
+    <modulo nombre="PapeleraPedido">
+        <var-entorno nombre="XAVA_LIST_ACTION" 
+        valor="Papelera.restaurar"/>
+        <modelo nombre="Pedido"/>
+        <tab nombre="Eliminado"/>
+        <controlador nombre="Papelera"/>
+    </modulo>
+
+		
+</aplicacion>
+
